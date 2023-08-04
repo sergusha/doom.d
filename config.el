@@ -45,7 +45,18 @@
 (setq org-directory "~/Org/")
 (setq org-agenda-files (directory-files-recursively "~/Org/" "\\.org$"))
 
-(setq global-centered-cursor-mode t)
+(use-package! centered-cursor-mode
+  :demand
+  :config
+  ;; Optional, enables centered-cursor-mode in all buffers.
+  (global-centered-cursor-mode))
+
+(define-key global-map (kbd "C-M-<up>") 'windmove-up)
+(define-key global-map (kbd "C-M-<down>") 'windmove-down)
+(define-key global-map (kbd "C-M-<left>") 'windmove-left)
+(define-key global-map (kbd "C-M-<right>") 'windmove-right)
+
+
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
