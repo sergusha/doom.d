@@ -43,7 +43,14 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Org/")
+
 (setq org-agenda-files (directory-files-recursively "~/Org/" "\\.org$"))
+
+(unless window-system
+   (global-set-key (kbd "<mouse-4>") 'scroll-down-line)
+   (global-set-key (kbd "<mouse-5>") 'scroll-up-line)
+   (setq mouse-wheel-up-event 'mouse-5)
+   (setq mouse-wheel-down-event 'mouse-4))
 
 (use-package! centered-cursor-mode
   :demand
@@ -51,10 +58,10 @@
   ;; Optional, enables centered-cursor-mode in all buffers.
   (global-centered-cursor-mode))
 
-(define-key global-map (kbd "C-M-<up>") 'windmove-up)
-(define-key global-map (kbd "C-M-<down>") 'windmove-down)
-(define-key global-map (kbd "C-M-<left>") 'windmove-left)
-(define-key global-map (kbd "C-M-<right>") 'windmove-right)
+(define-key global-map (kbd "C-S-<up>") 'windmove-up)
+(define-key global-map (kbd "C-S-<down>") 'windmove-down)
+(define-key global-map (kbd "C-S-<left>") 'windmove-left)
+(define-key global-map (kbd "C-S-<right>") 'windmove-right)
 
 
 
